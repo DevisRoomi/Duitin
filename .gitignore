@@ -6,6 +6,7 @@ target/
 .env
 .env.*
 *.env
+!.env.example
 backend/.env
 frontend/.env
 
