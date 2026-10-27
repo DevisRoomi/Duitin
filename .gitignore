@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+target/
+
+# Environment and Secrets
+.env
+.env.*
+*.env
+backend/.env
+frontend/.env
+
+# SQLite Databases & Local Data
+*.db
+*.db-shm
+*.db-wal
+duitin.db*
+backend/duitin.db*
+
+# Build outputs
+dist/
+build/
+
+# Testing scratch scripts
+test_api.ps1
+
+# IDE / System
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
