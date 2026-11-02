@@ -51,6 +51,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             "http://127.0.0.1:5173".parse::<HeaderValue>()?,
             "http://localhost:8080".parse::<HeaderValue>()?,
             "http://127.0.0.1:8080".parse::<HeaderValue>()?,
+            "http://duitin.test".parse::<HeaderValue>()?,
+            "https://duitin.test".parse::<HeaderValue>()?,
             config.frontend_origin.parse::<HeaderValue>()?,
         ])
         .allow_methods([
