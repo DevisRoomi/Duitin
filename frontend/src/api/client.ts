@@ -143,13 +143,6 @@ class ApiClient {
     return this.request<MonthlySummary>(`/summary?month=${encodeURIComponent(month)}`);
   }
 
-  // Seed / Demo Data
-  async seedDemo(): Promise<{ message: string; count: number }> {
-    return this.request<{ message: string; count: number }>('/demo/seed', {
-      method: 'POST',
-    });
-  }
-
   // Health Endpoint
   async checkHealth(): Promise<{ status: string; version: string }> {
     return this.request<{ status: string; version: string }>('/health');

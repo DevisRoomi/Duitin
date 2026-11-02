@@ -1,5 +1,4 @@
 pub mod auth;
-pub mod demo;
 pub mod health;
 pub mod summary;
 pub mod transactions;
@@ -26,7 +25,5 @@ pub fn create_api_router(state: AppState) -> Router {
         .route("/transactions/:id", delete(transactions::delete_transaction))
         // Monthly Summary & Reports
         .route("/summary", get(summary::get_summary))
-        // Demo Experience
-        .route("/demo/seed", post(demo::seed_demo_data))
         .with_state(state)
 }

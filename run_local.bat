@@ -5,10 +5,10 @@ echo   Menjalankan Duitin (Rust + React) di Komputer Lokal
 echo ============================================================
 echo.
 
-set "PATH=C:\Users\Lenovo\.cargo\bin;C:\Users\Lenovo\scoop\apps\mingw\current\bin;%PATH%"
+set "PATH=%USERPROFILE%\.cargo\bin;%USERPROFILE%\scoop\apps\mingw\current\bin;C:\Users\Lenovo\.cargo\bin;C:\Users\Lenovo\scoop\apps\mingw\current\bin;%PATH%"
 
 echo [1/2] Menjalankan Backend Rust (Port 8080)...
-start "Duitin Backend (Port 8080)" cmd /k "cd /d %~dp0backend && set PATH=C:\Users\Lenovo\.cargo\bin;C:\Users\Lenovo\scoop\apps\mingw\current\bin;%%PATH%% && cargo run"
+start "Duitin Backend (Port 8080)" cmd /k "cd /d %~dp0backend && set PATH=%%USERPROFILE%%\.cargo\bin;%%USERPROFILE%%\scoop\apps\mingw\current\bin;%%PATH%% && cargo run"
 
 echo [2/2] Menjalankan Frontend React Vite (Port 5173)...
 start "Duitin Frontend (Port 5173)" cmd /k "cd /d %~dp0frontend && npm run dev"

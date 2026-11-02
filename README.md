@@ -52,8 +52,7 @@ Rustreact_santricode/
 │   │       ├── health.rs        # GET /api/v1/health
 │   │       ├── auth.rs          # /register, /login, /me
 │   │       ├── transactions.rs  # CRUD transaksi dengan filter & paginasi
-│   │       ├── summary.rs       # Kalkulasi ringkasan & komparasi bulanan
-│   │       └── demo.rs          # Seeder data transaksi contoh Indonesia
+│   │       └── summary.rs       # Kalkulasi ringkasan & komparasi bulanan
 │   └── tests/
 │       └── api_tests.rs         # Test suite integrasi dan database
 ├── frontend/
@@ -166,10 +165,6 @@ Rustreact_santricode/
 - Tabel rincian alokasi per kategori beserta persentase kontribusi terhadap total pengeluaran.
 - Rekap arus kas harian (*Daily Cashflow net balance*).
 
-### E. Pengalaman Demo (*Demo Experience*)
-- Fitur **Muat Contoh Data** (*Seed Demo*) menghasilkan 16 transaksi realistis khas mahasiswa dan *freelancer* di Indonesia untuk bulan berjalan dan bulan sebelumnya.
-- Data demo terikat langsung ke akun pengguna yang sedang aktif dan tidak akan menimpa data pengguna lain.
-
 ---
 
 ## 6. Verifikasi & Pengujian yang Telah Dilakukan
@@ -185,7 +180,6 @@ Rustreact_santricode/
    - Eksekusi skrip integrasi `test_api.ps1`:
      - Health Check `GET /api/v1/health` -> OK
      - Registrasi Pengguna `POST /api/v1/auth/register` -> Token JWT terbit
-     - Seeding Demo Data `POST /api/v1/demo/seed` -> 16 transaksi tersimpan
      - Summary `GET /api/v1/summary?month=2026-10` -> Pemasukan Rp 3.350.000, Pengeluaran Rp 1.275.000, Sisa Rp 2.075.000
      - Buat Transaksi `POST /api/v1/transactions` -> Sukses
      - Cari Transaksi `GET /api/v1/transactions?search=Sate` -> 1 item ditemukan
