@@ -28,14 +28,10 @@ import { DeleteConfirmModal } from '../components/DeleteConfirmModal';
 
 interface DashboardPageProps {
   onOpenAddModal: () => void;
-  onSeedDemo: () => void;
-  isSeeding: boolean;
 }
 
 export const DashboardPage: React.FC<DashboardPageProps> = ({
   onOpenAddModal,
-  onSeedDemo,
-  isSeeding,
 }) => {
   const [selectedMonth, setSelectedMonth] = useState<string>(getCurrentMonth());
   const [summary, setSummary] = useState<MonthlySummary | null>(null);
@@ -242,8 +238,6 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               description="Catat pengeluaran atau pemasukan harian Anda untuk mengaktifkan grafik dan statistik keuangan."
               onAction={onOpenAddModal}
               actionText="Tambah Transaksi Baru"
-              onSeedDemo={onSeedDemo}
-              isSeeding={isSeeding}
             />
           ) : (
             <>

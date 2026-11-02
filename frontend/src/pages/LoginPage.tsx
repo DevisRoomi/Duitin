@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Wallet, LogIn, Sparkles, AlertCircle } from 'lucide-react';
+import { Wallet, LogIn, AlertCircle } from 'lucide-react';
 import { api } from '../api/client';
 import type { User } from '../types';
 
@@ -36,26 +36,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
     }
   };
 
-  const handleDemoLogin = async () => {
-    setError(null);
-    setIsLoading(true);
-    try {
-      // Login with default demo user or register demo user
-      let res;
-      try {
-        res = await api.login('demo@duitin.app', 'demo123456');
-      } catch {
-        res = await api.register('Santri Demo', 'demo@duitin.app', 'demo123456');
-      }
-      onLoginSuccess(res.user);
-      navigate('/');
-    } catch (err: any) {
-      setError(err.message || 'Gagal masuk sebagai akun demo');
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <div
       style={{
@@ -64,7 +44,10 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '1.5rem',
-        background: 'linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%)',
+        backgroundColor: '#f8fafc',
+        backgroundImage:
+          'radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 60%), linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px)',
+        backgroundSize: '100% 100%, 32px 32px, 32px 32px',
       }}
     >
       <div
@@ -159,26 +142,6 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
             {isLoading ? 'Memproses...' : 'Masuk Sekarang'}
           </button>
         </form>
-
-        <div style={{ margin: '1.5rem 0', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div style={{ flex: 1, borderTop: '1px solid var(--border-light)' }} />
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase' }}>
-            atau
-          </span>
-          <div style={{ flex: 1, borderTop: '1px solid var(--border-light)' }} />
-        </div>
-
-        {/* Demo Fast Login */}
-        <button
-          type="button"
-          onClick={handleDemoLogin}
-          className="btn btn-secondary"
-          style={{ width: '100%', padding: '0.625rem', color: '#4f46e5', borderColor: '#c7d2fe', background: '#eef2ff' }}
-          disabled={isLoading}
-        >
-          <Sparkles size={16} />
-          Masuk Instan (Akun Demo)
-        </button>
 
         <div style={{ textAlign: 'center', marginTop: '1.5rem', fontSize: '0.875rem', color: 'var(--text-muted)' }}>
           Belum memiliki akun?{' '}

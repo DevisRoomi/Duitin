@@ -6,7 +6,6 @@ import {
   PieChart,
   PlusCircle,
   LogOut,
-  Sparkles,
   Wallet,
 } from 'lucide-react';
 import type { User } from '../types';
@@ -15,16 +14,12 @@ interface SidebarProps {
   user: User | null;
   onLogout: () => void;
   onOpenAddModal: () => void;
-  onSeedDemo: () => void;
-  isSeeding: boolean;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
   user,
   onLogout,
   onOpenAddModal,
-  onSeedDemo,
-  isSeeding,
 }) => {
   return (
     <aside className="sidebar">
@@ -125,31 +120,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <PieChart size={19} />
           Laporan Bulanan
         </NavLink>
-
-        <div style={{ margin: '1rem 0', borderTop: '1px solid var(--border-light)' }} />
-
-        {/* Demo Data Button */}
-        <button
-          onClick={onSeedDemo}
-          disabled={isSeeding}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.75rem',
-            padding: '0.625rem 0.875rem',
-            borderRadius: 'var(--radius-md)',
-            fontWeight: 500,
-            fontSize: '0.8125rem',
-            color: '#4f46e5',
-            background: '#eef2ff',
-            textAlign: 'left',
-            opacity: isSeeding ? 0.6 : 1,
-          }}
-          title="Isi contoh transaksi mahasiswa/freelancer"
-        >
-          <Sparkles size={16} />
-          {isSeeding ? 'Memuat Demo...' : 'Muat Contoh Data'}
-        </button>
       </nav>
 
       {/* User Footer */}

@@ -1,13 +1,11 @@
 import React from 'react';
-import { PlusCircle, Sparkles, Inbox } from 'lucide-react';
+import { PlusCircle, Inbox } from 'lucide-react';
 
 interface EmptyStateProps {
   title?: string;
   description?: string;
   onAction?: () => void;
   actionText?: string;
-  onSeedDemo?: () => void;
-  isSeeding?: boolean;
 }
 
 export const EmptyState: React.FC<EmptyStateProps> = ({
@@ -15,8 +13,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   description = 'Mulai catat pemasukan dan pengeluaran harian Anda untuk melihat ringkasan keuangan yang rapi.',
   onAction,
   actionText = 'Catat Transaksi Pertama',
-  onSeedDemo,
-  isSeeding = false,
 }) => {
   return (
     <div
@@ -60,18 +56,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           <button onClick={onAction} className="btn btn-primary">
             <PlusCircle size={18} />
             {actionText}
-          </button>
-        )}
-
-        {onSeedDemo && (
-          <button
-            onClick={onSeedDemo}
-            disabled={isSeeding}
-            className="btn btn-secondary"
-            style={{ color: '#4f46e5' }}
-          >
-            <Sparkles size={16} />
-            {isSeeding ? 'Memuat Demo...' : 'Coba Data Demo'}
           </button>
         )}
       </div>

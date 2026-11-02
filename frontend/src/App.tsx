@@ -16,7 +16,6 @@ export function AppContent() {
   const [isInitializing, setIsInitializing] = useState<boolean>(true);
   const [isAddModalOpen, setIsAddModalOpen] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [isSeeding, setIsSeeding] = useState<boolean>(false);
   const [toastMessage, setToastMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   const showToast = (text: string, type: 'success' | 'error' = 'success') => {
@@ -76,19 +75,6 @@ export function AppContent() {
       throw err;
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleSeedDemo = async () => {
-    setIsSeeding(true);
-    try {
-      const res = await api.seedDemo();
-      showToast(res.message || 'Contoh data demo berhasil dimuat!', 'success');
-      window.dispatchEvent(new CustomEvent('duitin:refresh'));
-    } catch (err: any) {
-      showToast(err.message || 'Gagal memuat contoh data', 'error');
-    } finally {
-      setIsSeeding(false);
     }
   };
 
@@ -182,8 +168,6 @@ export function AppContent() {
                   user={user}
                   onLogout={handleLogout}
                   onOpenAddModal={() => setIsAddModalOpen(true)}
-                  onSeedDemo={handleSeedDemo}
-                  isSeeding={isSeeding}
                 />
 
                 <main className="main-content">
@@ -193,8 +177,6 @@ export function AppContent() {
                       element={
                         <DashboardPage
                           onOpenAddModal={() => setIsAddModalOpen(true)}
-                          onSeedDemo={handleSeedDemo}
-                          isSeeding={isSeeding}
                         />
                       }
                     />

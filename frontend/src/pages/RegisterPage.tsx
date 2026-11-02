@@ -61,7 +61,10 @@ export const RegisterPage: React.FC<RegisterPageProps> = ({ onRegisterSuccess })
         alignItems: 'center',
         justifyContent: 'center',
         padding: '1.5rem',
-        background: 'linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%)',
+        backgroundColor: '#f8fafc',
+        backgroundImage:
+          'radial-gradient(circle at 50% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 60%), linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px), linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px)',
+        backgroundSize: '100% 100%, 32px 32px, 32px 32px',
       }}
     >
       <div
